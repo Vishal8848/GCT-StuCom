@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="Author" content="Vishal Pranav">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Page Title -->
+        <title> GCT Student Community </title>
+        <link rel="icon" href="assets/logo.png">
+
+        <!-- Bootstrap v5.0.2 -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap-lux.min.css">
+
+        <!-- Font Awesome v5.15.3 -->
+        <link rel="stylesheet" href="font-awesome/css/all.min.css">
+
+        <!-- jQuery v3.6.0 (npm) -->
+        <script src="jquery/dist/jquery.min.js"></script>
+
+        <!-- Customization -->
+        <link rel="stylesheet" href="connect.css">
+        <script src="connect.js"></script>
+
+    </head>
+
+    <body style="background-color: rgb(234, 234, 253)">
+
+        <!-- Connect Page -->
+        <div id="Connect-Page" class="bg-light p-3 mt-md-5 rounded shadow form-body">
+            <!-- Heading -->
+            <div class="m-auto text-center">
+                <a href="#" class="form-name">
+                    <img src="assets/logo.png" alt="GCT Logo" width="50px" height="50px">
+                    <h4 class="pt-2">GCT Student Community</h4>
+                </a>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" method="POST" class="mx-md-5">
+                <legend id="logLegend" class="text-center">Welcome to Login</legend>
+                <div id="loginMsg" class="my-2 text-danger text-center">Incorrect Username or Password</div>
+                <div id="registerMsg" class="my-2 text-danger text-center"></div>
+                <div class="m-2 p-2">
+                    <label for="lusername" class="form-label ms-2"><i class="fas fa-user me-2"></i>GCT Register</label>
+                    <input type="text" name="lusername" id="lusername" class="form-control border border-dark" aria-describedby="userMsg" required>
+                    <div id="lusernameText" class="form-text text-muted">&nbsp;&nbsp;Example : 1918XXX</div>
+                </div>
+                <div class="m-2 p-2">
+                    <label for="lpasswd" class="form-label ms-2"><i class="fas fa-lock me-2"></i>Password</label>
+                    <input type="password" class="form-control border border-dark" name="lpasswd" id="lpasswd" required>
+                </div>
+                <div class="ms-4 form-check">
+                    <input type="checkbox" class="form-check-input border border-dark" id="userCheck">
+                    <label class="form-check-label" for="userCheck">Remember Me</label>
+                </div>
+                <div class="text-center p-2 mt-2">
+                    <input type="submit" name="logSubmit" class="btn btn-outline-success me-2" value="Sign In">
+                    &nbsp;&nbsp;(or)&nbsp;&nbsp;
+                    <button type="button" class="btn btn-outline-primary ms-2 text-muted" onclick="formTransfer()">Sign Up</button>
+                </div>
+                <div class="mt-2 p-2 text-center">
+                    <a href="#" class="me-2">Forgot Password ?</a>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" method="POST">
+                <legend id="regLegend" class="text-center">Welcome New User</legend>
+                <div class="row gx-5 p-2">
+                    <div class="col-md-6">
+                        <label for="register" class="form-label"><i class="fas fa-address-card me-2"></i>Register </label>
+                        <input type="text" name="register" id="register" class="form-control border border-dark" onkeyup="releaseHidden()" aria-describedby="registerVal" required>
+                        <div id="registerText" class="form-text">&nbsp;&nbsp;Example: 1918XXX</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="rusername" class="form-label"><i class="fas fa-envelope me-2"></i>GCT Email ID</label>
+                        <input type="email" name="rusername" id="rusername" class="form-control border border-dark" onkeyup="releaseHidden()" aria-describedby="emailType" required>
+                        <div id="rusernameText" class="form-text">Please provide GCT mail ID</div>
+                    </div>
+                </div>
+                <div class="row gx-5 p-2" hidden>
+                    <div class="col-md-6">
+                        <label for="fname" class="form-label"><i class="fas fa-user me-2"></i>First Name</label>
+                        <input type="text" name="fname" id="fname" class="form-control border border-dark" required>
+                        <div id="fnameText" class="form-text text-danger"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lname" class="form-label"><i class="fas fa-user me-2"></i>Last Name</label>
+                        <input type="text" name="lname" id="lname" class="form-control border border-dark" aria-describedby="lastName">
+                        <div id="lnameText" class="form-text text-danger"></div>
+                    </div>
+                </div>
+                <div class="row gx-5 p-2" hidden>
+                    <div class="col-md-6">
+                        <label for="year" class="form-label"><i class="fas fa-medal me-2"></i>Year of Study</label>
+                        <select class="form-select border border-dark" name="year" id="year" required>
+                            <option value="" selected disabled>Select</option>
+                            <option value="1">I</option>
+                            <option value="2">II</option>
+                            <option value="3">III</option>
+                            <option value="4">IV</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dept" class="form-label"><div class="fas fa-university me-2"></div>Department</label>
+                        <select class="form-select border border-dark" name="dept" id="dept" required>
+                            <option value="" selected disabled>Select</option>
+                            <option value="IT">IT</option>
+                            <option value="CSE">CSE</option>
+                            <option value="MECH">MECH</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="PROD">PROD</option>
+                            <option value="IBT">IBT</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="EIE">EIE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row gx-5 px-2" hidden>
+                    <div class="col-md-6 mt-2">
+                        <label for="rpasswd" class="form-label"><i class="fas fa-lock me-2"></i>Password</label>
+                        <input type="password" name="rpasswd" id="rpasswd" class="form-control border border-dark" aria-describedby="regPassword" required>
+                        <div id="rpasswdText" class="form-text text-muted ps-2">See Example</div>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label for="cpasswd" class="form-label"><i class="fas fa-lock me-1"></i>Confirm Password</label>
+                        <input type="password" name="cpasswd" id="cpasswd" class="form-control border border-dark" aria-describedby="regCPassword" required>
+                        <div id="cpasswdText" class="form-text text-danger"></div>
+                    </div>
+                </div>
+                <div class="text-center p-2 mt-2">
+                    <input type="submit" name="regSubmit" class="btn btn-outline-success me-2" value="Sign Up" onclick="return Validation()">
+                    &nbsp;&nbsp;(or)&nbsp;&nbsp;
+                    <button type="button" class="btn btn-outline-primary ms-2 text-muted" onclick="formTransfer()">Sign In</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bootstrap v5.0.2 JS -->
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+
+</html>
