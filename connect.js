@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
 
     $('#loginForm').submit(function(e){
-        let Login = 0;
+        let Login = null;
         e.preventDefault();
        $.ajax({
             url: 'login.php',
@@ -44,7 +44,7 @@ $(document).ready(function() {
     });
 
     $('#registerForm').submit(function(e){
-        let Register = 0;
+        let Register = null;
         e.preventDefault();
         $.ajax({
             url: 'register.php',
